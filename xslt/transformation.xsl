@@ -30,7 +30,6 @@
         </xsl:for-each>
         
         <xsl:for-each select="key('inserts_seg', $ids)">
-            <!--            <xsl:copy-of select="."/>-->
          <xsl:element name="handshift"><xsl:copy-of select="preceding-sibling::handShift/@new"/></xsl:element>
             <seg>
                 <xsl:attribute name="hand">

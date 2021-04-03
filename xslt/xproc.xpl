@@ -8,23 +8,13 @@
     <!-- Ports der Pipeline deklarieren -->
     <p:input port="source"/>
     <p:output port="result"/>
-    <!--
-    <p:input port="source" primary="true"></p:input>
-    <p:input kind="parameter" port="parameters"></p:input>    
-    <p:output port="result" sequence="true" primary="true"/>-->
-    
-   <!-- <p:variable name="path"
-        select="gsa/**/">
-        <p:empty/>
-    </p:variable>-->
+   
     <p:directory-list path="./gsa" include-filter=".*.xml" name="directory"/>
     
     <p:for-each>
         <p:iteration-source select="//c:file"/>
         <p:variable name="filename" select="//c:file/@name"/>
-        
-        <!--<p:load>            <p:with-option name="href" select="resolve-uri(/c:file/@name, base-uri(/))"/>        </p:load>-->
-        
+                
         <p:load>
             <p:with-option name="href" select="concat('gsa/', $filename)"/> 
         </p:load>
